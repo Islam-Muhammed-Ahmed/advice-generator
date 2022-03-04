@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import img from "./assets/icon-dice.svg";
-import divider from "./assets/pattern-divider-desktop.svg"
+import divider from "./assets/pattern-divider-desktop.svg";
 const App = () => {
   const [advice, setAdvice] = useState();
   const [id, setID] = useState();
@@ -29,7 +29,7 @@ const App = () => {
         <div className="card">
           <h3 className="advice-id">ADVICE #“ {id} “</h3>
           <h2 className="advice">{advice}</h2>
-          <div class="divider">
+          <div className="divider">
             <img src={divider} alt="divider-patter" />
           </div>
           <button onClick={() => getAdvice()} className="dice">
