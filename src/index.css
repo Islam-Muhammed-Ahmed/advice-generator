@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --bg-color: hsl(217, 30%, 17%);
+    --font-color: hsl(193, 38%, 86%);
+    --dice-color: hsl(150, 100%, 66%);
+}
+
+body {
+    background-image: url("./assets/background.jpg");
+    background-color: var(--bg-color);
+    background-size: 100% 105%;
+    background-repeat: no-repeat;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 95vh;
+}
+
+.card {
+    background: rgba(117, 110, 110, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    text-align: center !important;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.card .advice-id {
+    margin: 25px 0 25px 0;
+    font-weight: 100;
+    color: var(--dice-color);
+    font-size: .9rem;
+    letter-spacing: 5px;
+}
+
+.advice {
+    text-align: center;
+    color: var(--font-color);
+}
+
+
+.divider {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+
+.dice {
+    transition: 0.4s;
+    margin-bottom: -20px;
+    margin-top: 10px;
+    background-color: var(--dice-color);
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    /*  */
+}
+
+.dice img {
+    height: 18px;
+    width: 18px;
+}
+
+/* hover */
+.dice:hover {
+    transition: 0.4s;
+    cursor: pointer;
+    box-shadow: var(--dice-color) 0px 3px 20px, var(--dice-color) 0px -3px 20px;
 }

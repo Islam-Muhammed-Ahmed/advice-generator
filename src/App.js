@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
 
-function App() {
+import img from "./assets/icon-dice.svg";
+import divider from "./assets/pattern-divider-desktop.svg"
+const App = () => {
+  const [advice, setAdvice] = useState();
+  const [id, setID] = useState();
+  const getAdvice = async () => {
+    const url = "https://api.adviceslip.com/advice";
+    try {
+      const response = await fetch(url);
+      //   console.log(response);
+      const data = await response.json();
+      const { advice, id } = data.slip;
+      setID(id);
+      setAdvice(advice);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAdvice();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main>
+        <div className="card">
+          <h3 className="advice-id">ADVICE #“ {id} “</h3>
+          <h2 className="advice">{advice}</h2>
+          <div class="divider">
+            <img src={divider} alt="divider-patter" />
+          </div>
+          <button onClick={() => getAdvice()} className="dice">
+            <img src={img} alt="dice-icon" />
+          </button>
+        </div>
+      </main>
+    </>
   );
-}
+};
 
 export default App;
