@@ -48,6 +48,7 @@ main {
 .advice {
     text-align: center;
     color: var(--font-color);
+    font-size: 5vw;
 }
 
 
